@@ -121,7 +121,7 @@ export default {
   methods: {
     ...mapMutations({
       increment: 'INCREMENT',
-      decrement: 'DECREMENT',
+      decrement: 'DECREMENT'
     }),
     ...mapActions([
       'action'

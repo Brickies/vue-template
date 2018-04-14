@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './home';
+import home from './home'
 
 Vue.use(Vuex)
 
