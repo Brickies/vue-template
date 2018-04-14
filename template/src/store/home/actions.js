@@ -1,5 +1,6 @@
 export const action = async () => {
-  return await new Promise((resolve, reject) => {
+  const aw = await new Promise((resolve, reject) => {
     resolve('hello action')
   })
+  return aw
 }
