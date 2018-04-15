@@ -1,6 +1,6 @@
 # vue webpack 模板
 
-> 集成了 webpack + vue-loader + vuex + axios，包含了 webpack 热更新，linting，测试以及 css 处理器的
+> 一个集成了 webpack + vue-loader + vuex + axios 的自定义 vue-cli 模板，其中包含 webpack 热更新，linting，测试以及 css 处理器等内容
 
 > 该模板兼容 Vue2.0 . 对于 Vue1.x，执行命令：`vue init Brickies/vue-template#1.0 my-project`
 
