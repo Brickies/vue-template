@@ -4,7 +4,7 @@
 
 > This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init Brickies/vue-template#1.0 my-project`
 
-Chinese Doc : [中文文档](https://github.com/Brickies/vue-template/blob/master/README.md)
+Chinese Doc : [中文文档](https://github.com/Brickies/vue-template/blob/mt-bfe/README.md)
 
 ## Usage
 
@@ -12,7 +12,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init Brickies/vue-template my-project
+$ vue init Brickies/vue-template#mt-bfe my-project
 $ cd my-project
 $ npm install
 $ npm run dev
