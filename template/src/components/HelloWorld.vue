@@ -71,10 +71,10 @@ import request from '@/service';
 
 export default {
     name: 'HelloWorld',
-    data () {
+    data() {
         return {
             msg: 'Welcome to Your Vue.js App'
-        }
+        };
     },
     {{#vuex}}
     computed: {
@@ -84,10 +84,10 @@ export default {
     },
     {{/vuex}}
     {{#axios}}
-    created () {
+    created() {
         request.get('/api/mixin/resources/1983151012').then(res => {
             console.log(res);
-        })
+        });
     },
     {{/axios}}
     {{#vuex}}
@@ -99,12 +99,12 @@ export default {
         ...mapActions([
             'action'
         ]),
-        async testAction () {
+        async testAction() {
             const msg = await this.action();
             console.log(msg);
         }
     },
-    mounted () {
+    mounted() {
         this.testAction();
     }
     {{/vuex}}
