@@ -9,7 +9,7 @@ module.exports = {
 		browser: true,
 	},
 	{{#if_eq lintConfig "mt-bfe"}}
-	extends: 'eslint-config-bfe',
+	extends: ['plugin:vue/essential', 'eslint-config-bfe'],
 	{{/if_eq}}
 	{{#if_eq lintConfig "standard"}}
 	extends: [
@@ -72,6 +72,10 @@ module.exports = {
 		}],
 		{{/if_eq}}
 		// allow debugger during development
-		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+		{{#if_eq lintConfig "mt-bfe"}}
+		"max-len": [1, 200, 4],
+		"no-inline-comments": 0
+		{{/if_eq}}
 	}
 };
