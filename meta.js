@@ -95,6 +95,11 @@ module.exports = {
       message: 'Pick an ESLint preset',
       choices: [
         {
+          name: 'mt-bfe (https://github.com/MTDP-BFE/eslint-config-bfe',
+          value: 'mt-bfe',
+          short: 'mt-bfe',
+        },
+        {
           name: 'Standard (https://github.com/standard/standard)',
           value: 'standard',
           short: 'Standard',
