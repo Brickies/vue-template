@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import qs from 'qs'
+import qs from 'qs'
 import config from './config'
 
 const service = axios.create(config)
@@ -7,7 +7,15 @@ const service = axios.create(config)
 // POST 传参序列化
 service.interceptors.request.use(
   config => {
-    // if (config.method === 'post') config.data = qs.stringify(config.data)
+    // 在发送请求之前做某件事
+    if (
+      config.method === 'post' ||
+      config.method === 'put'  ||
+      config.method === 'delete'
+    ) {
+      // 序列化
+      config.data = qs.parse(config.data)
+    }
     return config
   },
   error => {
