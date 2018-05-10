@@ -24,8 +24,6 @@ export default {
   timeout: 10000,
   // 跨域是否带Token
   withCredentials: true,
-  // 自定义请求处理
-  adapter: function (resolve, reject, config) {},
   // 响应的数据格式 json / blob /document /arraybuffer / text / stream
   responseType: 'json',
   // xsrf 设置
@@ -37,7 +35,6 @@ export default {
     Math.round(progressEvent.loaded * 100 / progressEvent.total)
   },
   onDownloadProgress: function (progressEvent) {},
-
   // 最多转发数，用于node.js
   maxRedirects: 5,
   // 最大响应数据大小
