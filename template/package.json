@@ -28,7 +28,8 @@
     "vue": "^2.5.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}{{#vuex}},
     "vuex": "^3.0.1"{{/vuex}}{{#axios}},
-    "axios": "^0.18.0"{{/axios}}
+    "axios": "^0.18.0"{{/axios}}{{#element}},
+    "element-ui": "^2.3.8"{{/element}}
   },
   "devDependencies": {
     {{#lint}}

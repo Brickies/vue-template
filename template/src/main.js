@@ -10,7 +10,12 @@ import router from './router'
 {{#vuex}}
 import store from './store'
 {{/vuex}}
+{{#element}}
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
+Vue.use(ElementUI)
+{{/element}}
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

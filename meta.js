@@ -84,6 +84,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install axios?',
     },
+    element: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Install element-ui?',
+    },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
