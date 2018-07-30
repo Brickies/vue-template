@@ -53,7 +53,7 @@ import { AxiosResponse } from 'axios'
 export default class HelloWorld extends Vue {
   city: string = '上海'
 
-  @Prop() private msg!: string
+  @Prop() msg: string
   @Getter('count') count: number
   @Mutation('INCREMENT') INCREMENT: Function
   @Mutation('DECREMENT') DECREMENT: Function
