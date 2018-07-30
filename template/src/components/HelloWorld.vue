@@ -29,12 +29,6 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <p>\{{ count }}</p>
-    {{#!element}}
-    <button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</button>
-    <button @click="DECREMENT(2)">DECREMENT</button>
-    <input v-model="city" style="margin: 0 10px;" placeholder="请输入用户名" />
-    <button @click="getCityWeather(city)" style="margin-top: 10px;">获取天气</button>
-    {{/!element}}
     {{#element}}
     <el-button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</el-button>
     <el-button type="primary" @click="DECREMENT(2)">DECREMENT</el-button>
@@ -65,9 +59,7 @@ export default class HelloWorld extends Vue {
       {{#element}}
       this.$message.success(`${city}今日：${type} ${low} - ${high}`)
       {{/element}}
-      {{#!element}}
-      alert(`${city}今日：${type} ${low} - ${high}`)
-      {{/!element}}
+      console.log(`${city}今日：${type} ${low} - ${high}`)
     })
   }
 }
