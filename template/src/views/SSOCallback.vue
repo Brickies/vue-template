@@ -1,16 +1,13 @@
 <template>
 </template>
 <script lang="ts">
-import Cookies from 'js-cookie'
 import axios from 'axios'
 import sso from '@/utils/sso'
 import { Component, Vue } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
 import Util from '@/utils'
 
 @Component
 export default class SSOCallback extends Vue {
-
   created () {
     // 获取当前页面url的code参数（即Service Ticket，是SSO系统返回给业务方的登录凭证
     const code = Util.queryString('code')

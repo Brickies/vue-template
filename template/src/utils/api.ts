@@ -38,18 +38,7 @@ service.interceptors.request.use(
 // 返回状态判断(添加响应拦截器)
 service.interceptors.response.use(
   res => {
-    const data = res.data
-    if (data && data.code !== 0) {
-      {{#element}}
-      Message({
-        showClose: true,
-        type: 'warning',
-        message: `${data.message}`
-      })
-      {{/element}}
-      return Promise.reject(res)
-    }
-    return data
+    return res.data
   },
   error => {
     if (!error.response) {

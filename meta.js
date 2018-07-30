@@ -146,7 +146,7 @@ module.exports = {
     },
   },
   filters: {
-    'tests': 'e2e',
+    'tests/e2e/**/*': 'e2e',
     'cypress.json': "e2e",
     'f2eci.json': 'e2e',
     '.portm.json': "portm",

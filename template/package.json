@@ -11,7 +11,7 @@
     "build": "vue-cli-service build",
     "build-report": "vue-cli-service build --report && open dist/report.html",
     "lint": "vue-cli-service lint",
-    "commit": "git-cz",
+    "commit": "git-cz"
     {{#e2e}}
     "test:e2e": "vue-cli-service test:e2e",
     {{/e2e}}
@@ -29,6 +29,7 @@
     {{/element}}
     "js-cookie": "^2.2.0",
     "register-service-worker": "^1.0.0",
+    "typescript": "^2.9.2",
     "vue": "^2.5.16",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^6.0.0",

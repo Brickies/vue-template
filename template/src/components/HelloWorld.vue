@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { State, Getter, Mutation, Action } from 'vuex-class'
+import { Getter, Mutation, Action } from 'vuex-class'
 import { AxiosResponse } from 'axios'
 
 @Component
