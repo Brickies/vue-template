@@ -1,157 +1,33 @@
 <template>
-  <div class="hello">
-    <h1>\{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-    {{#vuex}}
-    <button @click="increment(2)">increment</button>
-    <button @click="decrement(3)">decrement</button>
-    <p>\{{ counter }}</p>
-    {{/vuex}}
+  <div class="home">
+    <img src="../assets/logo.png">
+    <p>\{{ count }}</p>
+    <button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</button>
+    <button @click="DECREMENT(2)">DECREMENT</button>
+    <input v-model="city" placeholder="请输入用户名" />
+    <button @click="getCityWeather(city)" style="margin-top: 10px;">获取天气</button>
   </div>
 </template>
 
-<script>
-{{#vuex}}
-import { mapState, mapMutations, mapActions } from 'vuex'
-{{/vuex}}
-{{#axios}}
-import request from '@/service'
-{{/axios}}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Getter, Mutation, Action } from 'vuex-class'
+import { AxiosResponse } from 'axios'
 
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
-  {{#vuex}}
-  computed: {
-    ...mapState({
-      counter: state => state.home.counter
+@Component
+export default class HelloWorld extends Vue {
+  city: string = '上海'
+
+  @Getter('count') count: number
+  @Mutation('INCREMENT') INCREMENT: Function
+  @Mutation('DECREMENT') DECREMENT: Function
+  @Action('getTodayWeather') getTodayWeather: Function
+
+  getCityWeather (city: string) {
+    this.getTodayWeather({ city: city }).then((res: AxiosResponse) => {
+      const { low, high, type } = res.data.forecast[0]
+      alert(`${city}今日：${type} ${low} - ${high}`)
     })
-  },
-  {{/vuex}}
-  {{#axios}}
-  created () {
-    request.get('/api/mixin/resources/1983151012').then(res => {
-      console.log(res)
-    })
-  },
-  {{/axios}}
-  {{#vuex}}
-  methods: {
-    ...mapMutations({
-      increment: 'INCREMENT',
-      decrement: 'DECREMENT'
-    }),
-    ...mapActions([
-      'action'
-    ]),
-    async testAction () {
-      const msg = await this.action()
-      console.log(msg)
-    }
-  },
-  mounted () {
-    this.testAction()
   }
-  {{/vuex}}
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

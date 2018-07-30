@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "npm run build",
+    "postpublish": ""
+  },
+  "dist": "./dist",
+  "yarn": true,
+  "output": "./html",
+  "urlPrefix": "/",
+  "static-src": "static/",
+  "env": "development",
+  "ignoreJsMin": true,
+  "ignoreCssMin": true,
+  "port": 8080,
+  "hosts": {
+    "static": {
+      "beta": "s1.51ping.com",
+      "ppe": "",
+      "product": "osx.dpfile.com"
+    }
+  }
+}

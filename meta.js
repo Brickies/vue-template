@@ -51,102 +51,75 @@ module.exports = {
       type: 'string',
       message: 'Author',
     },
-    build: {
-      when: 'isNotTest',
-      type: 'list',
-      message: 'Vue build',
-      choices: [
-        {
-          name: 'Runtime + Compiler: recommended for most users',
-          value: 'standalone',
-          short: 'standalone',
-        },
-        {
-          name:
-            'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere',
-          value: 'runtime',
-          short: 'runtime',
-        },
-      ],
-    },
-    router: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Install vue-router?',
-    },
-    vuex: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Install vuex?',
-    },
-    axios: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Install axios?',
-    },
     element: {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install element-ui?',
     },
-    lint: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use ESLint to lint your code?',
-    },
-    lintConfig: {
-      when: 'isNotTest && lint',
-      type: 'list',
-      message: 'Pick an ESLint preset',
-      choices: [
-        {
-          name: 'Standard (https://github.com/standard/standard)',
-          value: 'standard',
-          short: 'Standard',
-        },
-        {
-          name: 'Airbnb (https://github.com/airbnb/javascript)',
-          value: 'airbnb',
-          short: 'Airbnb',
-        },
-        {
-          name: 'none (configure it yourself)',
-          value: 'none',
-          short: 'none',
-        },
-      ],
-    },
-    unit: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Set up unit tests',
-    },
-    runner: {
-      when: 'isNotTest && unit',
-      type: 'list',
-      message: 'Pick a test runner',
-      choices: [
-        {
-          name: 'Jest',
-          value: 'jest',
-          short: 'jest',
-        },
-        {
-          name: 'Karma and Mocha',
-          value: 'karma',
-          short: 'karma',
-        },
-        {
-          name: 'none (configure it yourself)',
-          value: 'noTest',
-          short: 'noTest',
-        },
-      ],
-    },
     e2e: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Setup e2e tests with Nightwatch?',
+      message: 'Setup e2e tests?',
+    },
+    sso: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use sso in project?',
+    },
+    ssoConfig: {
+      when: 'isNotTest && sso',
+      type: 'string',
+      required: false,
+      message: 'sso cliend id',
+      default: 'your_sso_cliend_id',
+    },
+    ssoHost: {
+      when: 'isNotTest && sso',
+      type: 'string',
+      required: false,
+      message: 'your sso host',
+      default: 'your_sso_host',
+    },
+    watermark: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use watermark in project?',
+    },
+    portm: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use portm in project?',
+    },
+    portmTarget: {
+      when: 'isNotTest && portm',
+      type: 'string',
+      required: false,
+      message: 'portm target',
+      default: 'portm target',
+    },
+    portmUserToken: {
+      when: 'isNotTest && portm',
+      type: 'string',
+      required: false,
+      message: 'portm user token',
+      default: 'your_user_token',
+    },
+    portmProjectToken: {
+      when: 'isNotTest && portm',
+      type: 'string',
+      required: false,
+      message: 'portm project token',
+      default: 'your_project_token',
+    },
+    codex: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Setup codex publish?',
+    },
+    commitLint: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Setup commit lint?',
     },
     autoInstall: {
       when: 'isNotTest',
@@ -173,20 +146,14 @@ module.exports = {
     },
   },
   filters: {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
-    'config/test.env.js': 'unit || e2e',
-    'build/webpack.test.conf.js': "unit && runner === 'karma'",
-    'test/unit/**/*': 'unit',
-    'test/unit/index.js': "unit && runner === 'karma'",
-    'test/unit/jest.conf.js': "unit && runner === 'jest'",
-    'test/unit/karma.conf.js': "unit && runner === 'karma'",
-    'test/unit/specs/index.js': "unit && runner === 'karma'",
-    'test/unit/setup.js': "unit && runner === 'jest'",
-    'test/e2e/**/*': 'e2e',
-    'src/router/**/*': 'router',
-    'src/store/**/*': 'vuex',
-    'src/service/**/*': 'axios',
+    'tests': 'e2e',
+    'cypress.json': "e2e",
+    'f2eci.json': 'e2e',
+    '.portm.json': "portm",
+    'commitlint.config.js': "commit",
+    'src/views/SSOCallback.vue': "sso",
+    'src/utils/sso.ts': "sso",
+    'src/styles/element.scss': "element"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

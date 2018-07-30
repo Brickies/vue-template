@@ -1,0 +1,18 @@
+@import './var';
+
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+.el-icon--large {
+  font-size: 16px;
+}
+
+.el-icon--normal {
+  font-size: 14px;
+}
+
+.el-icon--small {
+  font-size: 12px;
+}
+
+@import "~element-ui/packages/theme-chalk/src/index";
