@@ -22,7 +22,7 @@ const mutations = {
 
 const actions = {
   async getTodayWeather (context: { commit: Commit }, params: { city: string }) {
-    return request.get('/weather/api/weatherApi', params)
+    return request.get('/weather/api/weatherApi', { params: params })
   }
 }
 

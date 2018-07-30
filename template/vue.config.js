@@ -1,11 +1,13 @@
 const path = require('path')
+{{#codex}}
 const f2eci = require('./f2eci')
 const originalENV = process.env.ENV || f2eci.env
 const env = (originalENV === 'beta' && f2eci.swimlane === 'alphaa') ? 'alpha' : originalENV //rewrite test env to alpha
 const urlPrefix = env === 'development' ? '/' : f2eci.urlPrefix
+{{/codex}}
 const webpack = require('webpack')
 let portm
-if (env === 'development') {
+if (process.env === 'development') {
   try {
     portm = require('./.portm.json')
   }
@@ -56,7 +58,9 @@ module.exports = {
       }
     }
   },
+  {{#codex}}
   baseUrl: urlPrefix,
+  {{/codex}}
   configureWebpack: config => {
     if (process.env.API_ENV === 'test') {
       config.plugins = [
@@ -65,6 +69,16 @@ module.exports = {
           'process.env.API_ENV': '"test"'
         })
       ]
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'src': resolve('src'),
+        'views': resolve('src/views'),
+        'styles': resolve('src/styles'),
+        'components': resolve('src/components'),
+        'utils': resolve('src/utils'),
+        'assets': resolve('src/assets'),
+        'store': resolve('src/store')
+      }
     }
   }
 }
