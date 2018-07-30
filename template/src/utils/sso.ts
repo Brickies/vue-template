@@ -3,13 +3,15 @@ import Cookies from 'js-cookie'
 const sso = {
   redirectLogin () {
     if (process.env.NODE_ENV === 'development' && process.env.API_ENV !== 'test') return
-    const prodHost = '{{ ssoHost }}'
+    // your sso origin host
+    const prodHost = '{{ ssoOriginHost }}'
     const devSsoHost = 'sso.it.beta.sankuai.com'
     const prodSsoHost = 'sso.sankuai.com'
     const loginInRedirectPath = '/oauth2.0/authorize'
     const ssoCallBack = '/#/ssocallback'
     let { host, protocol, href } = window.location
     let redirectHost = host === prodHost ? prodSsoHost : devSsoHost
+    // sso client id
     let clientId = '{{ ssoConfig }}'
     const rdRedireactURI = encodeURIComponent(
       `${protocol}//${host}${ssoCallBack}`

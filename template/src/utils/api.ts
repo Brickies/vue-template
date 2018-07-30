@@ -49,7 +49,6 @@ service.interceptors.response.use(
       sso.removeSsoid()
       sso.setCurrentURL()
       sso.redirectLogin()
-      
     }{{/sso}} {{#element}}else if (error.response.status === 403) {
       Message({
         showClose: true,

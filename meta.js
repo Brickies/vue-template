@@ -73,12 +73,12 @@ module.exports = {
       message: 'sso cliend id',
       default: 'your_sso_cliend_id',
     },
-    ssoHost: {
+    ssoOriginHost: {
       when: 'isNotTest && sso',
       type: 'string',
       required: false,
-      message: 'your sso host',
-      default: 'your_sso_host',
+      message: 'your sso origin host',
+      default: 'your_sso_origin_host',
     },
     watermark: {
       when: 'isNotTest',
@@ -95,7 +95,7 @@ module.exports = {
       type: 'string',
       required: false,
       message: 'portm target',
-      default: 'portm target',
+      default: 'portm_target',
     },
     portmUserToken: {
       when: 'isNotTest && portm',
@@ -114,12 +114,12 @@ module.exports = {
     codex: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Setup codex publish?',
+      message: 'Use codex publish?',
     },
     commitLint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Setup commit lint?',
+      message: 'Use commit lint?',
     },
     autoInstall: {
       when: 'isNotTest',
