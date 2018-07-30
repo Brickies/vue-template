@@ -51,8 +51,7 @@ const axiosConfig: AxiosRequestConfig = {
   },
   // 用于node.js
   httpAgent: new http.Agent({ keepAlive: true }),
-  httpsAgent: new https.Agent({ keepAlive: true }),
-  hideErrorMessage: false
+  httpsAgent: new https.Agent({ keepAlive: true })
 }
 
 export default axiosConfig

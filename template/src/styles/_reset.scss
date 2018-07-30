@@ -2,7 +2,6 @@ html {
   font-family: PingFangSC, PingFangSC-Regular, 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
   word-spacing: 1px;
   word-break: break-word;
   text-rendering: optimizeLegibility;
@@ -47,12 +46,4 @@ address, caption, cite, dfn, em, th, var, i, em {
 
 ol, ul {
   list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  &:hover {
-    text-decoration: none;
-  }
 }

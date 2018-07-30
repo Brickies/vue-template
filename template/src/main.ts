@@ -7,9 +7,9 @@ import store from './store'
 import './registerServiceWorker'
 {{#element}}
 import ElementUI from 'element-ui'
-import 'styles/element.scss'
+import '@/styles/element.scss'
 {{/element}}
-import 'styles/index.scss'
+import '@/styles/index.scss'
 {{#watermark}}
 import watermark from '@dp/watermark'
 
