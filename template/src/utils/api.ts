@@ -43,15 +43,14 @@ service.interceptors.response.use(
   error => {
     if (!error.response) {
       return Promise.reject(error)
-    }
+    }{{#sso}}
     if (error.response.status === 401) {
-      {{#sso}}
       // 重定向到SSO登录页
       sso.removeSsoid()
       sso.setCurrentURL()
       sso.redirectLogin()
-      {{/sso}}
-    } {{#element}}else if (error.response.status === 403) {
+      
+    }{{/sso}} {{#element}}else if (error.response.status === 403) {
       Message({
         showClose: true,
         type: 'warning',

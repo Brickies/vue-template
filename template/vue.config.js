@@ -6,6 +6,11 @@ const env = (originalENV === 'beta' && f2eci.swimlane === 'alphaa') ? 'alpha' : 
 const urlPrefix = env === 'development' ? '/' : f2eci.urlPrefix
 {{/codex}}
 const webpack = require('webpack')
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+{{#portm}}
 let portm
 if (process.env === 'development') {
   try {
@@ -16,12 +21,10 @@ if (process.env === 'development') {
     portm = {}
   }
 }
-
-function resolve (dir) {
-  return path.join(__dirname, dir)
-}
+{{/portm}}
 // portm 模拟数据地址: http://portm.sankuai.com/api-groups/edit/{{ portmProjectToken }}
 let proxyTable = {
+  {{#portm}}
   '^/api': {
     target: 'http://portm.sankuai.com',
     headers: {
@@ -43,6 +46,7 @@ let proxyTable = {
     }
   }
   {{/watermark}}
+  {{/portm}}
 }
 
 // 测试环境
