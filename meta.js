@@ -149,7 +149,7 @@ module.exports = {
     'tests/e2e/**/*': 'e2e',
     'cypress.json': "e2e",
     'f2eci.json': 'codex',
-    'commitlint.config.js': "commit",
+    'commitlint.config.js': "commitLint",
     'src/views/SSOCallback.vue': "sso",
     'src/utils/sso.ts': "sso",
     'src/styles/element.scss': "element"

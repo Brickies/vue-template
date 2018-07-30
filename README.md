@@ -12,7 +12,7 @@
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init Brickies/vue-template my-project
+$ vue init Brickies/vue-template#ts my-project
 $ cd my-project
 $ npm install
 $ npm run dev
