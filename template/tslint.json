@@ -15,6 +15,7 @@
     "no-consecutive-blank-lines": false,
     "no-return-await": false,
     "no-new": false,
-    "no-unused-variable": true
+    "no-unused-variable": true,
+    "no-floating-promises": false
   }
 }
