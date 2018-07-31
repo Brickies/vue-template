@@ -29,10 +29,16 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <p>\{{ count }}</p>
+    {{#if_not element}}
+    <button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</button>
+    <button @click="DECREMENT(2)">DECREMENT</button>
+    <input v-model="city" style="width: 300px; margin: 0 10px;" placeholder="请输入城市" />
+    <button @click="getCityWeather(city)" style="margin-top: 10px;">获取天气</button>
+    {{/if_not}}
     {{#element}}
     <el-button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</el-button>
     <el-button type="primary" @click="DECREMENT(2)">DECREMENT</el-button>
-    <el-input v-model="city" style="width: 300px; margin: 0 10px;" placeholder="请输入用户名" />
+    <el-input v-model="city" style="width: 300px; margin: 0 10px;" placeholder="请输入城市" />
     <el-button type="danger" @click="getCityWeather(city)" style="margin-top: 10px;">获取天气</el-button>
     {{/element}}
   </div>
@@ -59,7 +65,9 @@ export default class HelloWorld extends Vue {
       {{#element}}
       this.$message.success(`${city}今日：${type} ${low} - ${high}`)
       {{/element}}
-      console.log(`${city}今日：${type} ${low} - ${high}`)
+      {{#if_not element}}
+      alert(`${city}今日：${type} ${low} - ${high}`)
+      {{/if_not}}
     })
   }
 }
