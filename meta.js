@@ -30,6 +30,11 @@ module.exports = {
     template_version() {
       return templateVersion
     },
+    if_not(item, options) {
+      if (!item) {
+        return options.fn(this);
+      }
+    }
   },
   
   prompts: {
