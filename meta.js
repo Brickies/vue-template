@@ -71,6 +71,20 @@ module.exports = {
       type: 'confirm',
       message: 'Use sso in project?',
     },
+    prodSsoHost: {
+      when: 'isNotTest && sso',
+      type: 'string',
+      required: false,
+      message: 'prod sso host',
+      default: 'prod_sso_host',
+    },
+    devSsoHost: {
+      when: 'isNotTest && sso',
+      type: 'string',
+      required: false,
+      message: 'dev sso host',
+      default: 'dev_sso_host',
+    },
     ssoConfig: {
       when: 'isNotTest && sso',
       type: 'string',
@@ -84,6 +98,13 @@ module.exports = {
       required: false,
       message: 'your sso origin host',
       default: 'your_sso_origin_host',
+    },
+    mtHost: {
+      when: 'isNotTest',
+      type: 'string',
+      required: false,
+      message: 'mt host',
+      default: 'mt_host',
     },
     watermark: {
       when: 'isNotTest',
