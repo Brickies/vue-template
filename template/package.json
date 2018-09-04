@@ -10,11 +10,10 @@
     "dev-test": "cross-env API_ENV=test npm run serve",
     "build": "vue-cli-service build",
     "build-report": "vue-cli-service build --report && open dist/report.html",
-    "lint": "vue-cli-service lint",
     {{#commitLint}}
-    "commit": "git-cz"
+    "commit": "git-cz",
     {{/commitLint}}
-    {{#e2e}}
+    "lint": "vue-cli-service lint"{{#e2e}},
     "test:e2e": "vue-cli-service test:e2e",
     {{/e2e}}
   },
