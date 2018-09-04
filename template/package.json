@@ -48,7 +48,9 @@
     "@commitlint/config-conventional": "^7.0.1",
     {{/commitLint}}
     "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    {{#pwa}}
     "@vue/cli-plugin-pwa": "^3.0.0-beta.15",
+    {{/pwa}}
     "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
     "cross-env": "^5.2.0",

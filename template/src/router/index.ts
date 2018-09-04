@@ -6,7 +6,9 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '*', redirect: '/' },
+    {{#sso}}
     { path: '/ssocallback', name: 'ssocallback', component: () => import(/* webpackChunkName: "callback" */ '@/views/SSOCallback.vue') },
+    {{/sso}}
     {
       path: '/',
       name: 'Home',
