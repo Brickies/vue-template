@@ -11,7 +11,9 @@
     "build": "vue-cli-service build",
     "build-report": "vue-cli-service build --report && open dist/report.html",
     "lint": "vue-cli-service lint",
+    {{#commitLint}}
     "commit": "git-cz"
+    {{/commitLint}}
     {{#e2e}}
     "test:e2e": "vue-cli-service test:e2e",
     {{/e2e}}
@@ -20,14 +22,18 @@
     {{#watermark}}
     "@dp/watermark": "^1.1.1",
     {{/watermark}}
+    {{#sso}}
     "@types/js-cookie": "^2.1.0",
+    {{/sso}}
     "@types/lodash": "^4.14.110",
     "@types/qs": "^6.5.1",
     "axios": "^0.18.0",
     {{#element}}
     "element-ui": "^2.4.1",
     {{/element}}
+    {{#sso}}
     "js-cookie": "^2.2.0",
+    {{/sso}}
     "register-service-worker": "^1.0.0",
     "typescript": "^2.9.2",
     "vue": "^2.5.16",
@@ -70,8 +76,8 @@
     {{/commitLint}}
   },
   "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -E GIT_PARAMS"
+    "pre-commit": "lint-staged"{{#commitLint}},
+    "commit-msg": "commitlint -E GIT_PARAMS"{{/commitLint}}
   },
   "lint-staged": {
     "*.ts": [

@@ -147,6 +147,11 @@ module.exports = {
       type: 'confirm',
       message: 'Use commit lint?',
     },
+    pwa: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use pwa?',
+    },
     autoInstall: {
       when: 'isNotTest',
       type: 'list',
@@ -178,7 +183,8 @@ module.exports = {
     'commitlint.config.js': "commitLint",
     'src/views/SSOCallback.vue': "sso",
     'src/utils/sso.ts': "sso",
-    'src/styles/element.scss': "element"
+    'src/styles/element.scss': "element",
+    'src/registerServiceWorker.ts': "pwa"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
