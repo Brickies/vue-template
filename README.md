@@ -12,7 +12,7 @@
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init Brickies/vue-template#ts my-project
+$ vue init Brickies/vue-template#project-js my-project
 $ cd my-project
 $ npm install
 $ npm run dev
@@ -35,16 +35,6 @@ $ npm run dev
   - 所有组件中的 CSS 打包到单个文件并使用 [cssnano](https://github.com/ben-eb/cssnano) 进行压缩 .
   - 静态资源使用 hash 编译以实现有效的长期缓存，以及在打包自动生成的 `index.html` 文件中为这些资源进行自动引用 .
   - 使用 `npm run build --report` 进行打包分析
-
-- `npm run unit`: 在 [JSDOM](https://github.com/tmpvar/jsdom) 中使用 [Jest](https://facebook.github.io/jest/) 进行单元测试，或者在 PhantomJS 中使用 Karma + Mocha + karma-webpack 进行单元测试.
-  - 测试文件支持 ES2015 + .
-  - 容易 mocking .
-
-- `npm run e2e`: 使用 [Nightwatch](http://nightwatchjs.org/) 进行端对端测试 .
-  - 测试并行运行在多个浏览器中 .
-  - 使用一个命令就可做到开箱即用:
-    - 自动处理 Selenium 和 chromedriver 的依赖关系 .
-    - 自动生成 Selenium 服务 .
 
 ### 将项目 fork 下来做一个属于自己的
 
