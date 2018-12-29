@@ -1,4 +1,96 @@
-$blue: #4382FF;
+/* 系统名称 */
+$-system-background-color: #FAFBFE;
+$-system-rem-size: 14px;
+$-color-line: #f1f1f1;
+$-color-white: #FFFFFF;
+$-color-tabs-border-white: #FAFBFE;
+$-color-text-primary: #333333;
+$-color-text-header: #666666;
+$-color-text-desc: #999999;
+$-color-text-sub: #bbbbbb;
+$-color-silence: #7885A9;
+$-color-form-label: #73889E;
+$-color-grey: #ebeef6;
+$-color-border: #D4DDE6;
+$-color-icon: #8c99c1;
+$-color-button-icon: #7885a9;
+$-color-shadow: rgba(20, 41, 90, 0.15);
+$-color-success: #5ABB3C;
+
+$--tag-danger-color: #ff6459;
+$--tag-success-color: #4fca84;
+$--tag-warning-color: #ffab00;
+
+/* 各元素的z-index数 */
+$zidx-navbar: 2001;
 
 // /* 改变主题色变量 */
+$blue: #4382ff;
 $--color-primary: $blue;
+
+$--border-color-base: $-color-border !default;
+$--border-color-light: $-color-border !default;
+$--border-radius-base: 1px !default;
+
+$--input-height: 36px !default;
+
+$--table-header-background: #EEF1F7;
+$--table-header-color: #666666;
+$--table-row-hover-background: #F0F5FF !default;
+
+$--button-padding-vertical: 10px !default;
+$--button-padding-horizontal: 12px !default;
+$--color-warning: #ffab00 !default;
+$--color-danger: #ff6459 !default;
+$--color-info: $blue !default;
+
+$--tooltip-fill: $-color-silence;
+$--tooltip-padding: 4px 10px !default;
+
+$--tag-border-radius: 1px !default;
+$--tag-color: $blue;
+$--tag-border: $blue;
+
+$--tag-success-color: #4fca84;
+$--tag-success-fill: #ecf9f2;
+$--tag-success-border: #4fca84;
+
+$--tag-info-color: #8c99c1;
+$--tag-info-fill: #ebeef4;
+$--tag-info-border: #8c99c1;
+
+$--tag-warning-color: #ffab00;
+$--tag-warning-fill: #fef7e8;
+$--tag-warning-border: #ffab00;
+
+$--tag-danger-color: #ff6459;
+$--tag-danger-fill: #fff4f3;
+$--tag-danger-border: #ff6459;
+
+// /* Pagination
+// -------------------------- */
+$--pagination-font-size: 14px !default;
+$--pagination-color: #666666 !default;
+$--pagination-border-radius: 1px !default;
+$--pagination-button-color: #666666 !default;
+$--pagination-button-width: 32px !default;
+$--pagination-button-height: 32px !default;
+
+// /* Alert
+// -------------------------- */
+$--alert-info-color: #eff4ff;
+$--alert-title-font-size: 12px !default;
+
+// /* Notification */
+$--notification-width: 280px !default;
+$--notification-padding: 12px 16px !default;
+$--notification-radius: 1px !default;
+$--notification-success-color: #4fca84 !default;
+$--notification-info-color: $--color-info !default;
+$--notification-warning-color: $--color-warning !default;
+$--notification-danger-color: $--color-danger !default;
+$--notification-font-size: 12px !default;
+$--notification-title-font-size: 14px !default;
+$--notification-title-color: #666666 !default;
+$--notification-icon-size: 16px !default;
+$--notification-close-font-size: 14px !default;
