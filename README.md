@@ -2,9 +2,7 @@
 
 > 一个集成了 webpack + vue-loader + vuex + axios 的自定义 vue-cli 模板，其中包含 webpack 热更新，linting，测试以及 css 处理器等内容
 
-> 该模板兼容 Vue2.0 . 对于 Vue1.x，执行命令：`vue init Brickies/vue-template#1.0 my-project`
-
-英文文档 : [English Doc](https://github.com/Brickies/vue-template/blob/master/README_en-US.md)
+英文文档 : [English Doc](https://github.com/Brickies/vue-template/blob/project-ts/README_en-US.md)
 
 ## 用法
 
@@ -12,7 +10,7 @@
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init Brickies/vue-template#project-js my-project
+$ vue init Brickies/vue-template#project-ts my-project
 $ cd my-project
 $ npm install
 $ npm run dev
