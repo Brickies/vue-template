@@ -27,7 +27,7 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
-    <p>{{ count }}</p>
+    <p>\{{ count }}</p>
     <el-button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</el-button>
     <el-button type="primary" @click="DECREMENT(2)">DECREMENT</el-button>
     <el-input v-model="city" style="width: 300px; margin: 0 10px;" placeholder="请输入城市" />
