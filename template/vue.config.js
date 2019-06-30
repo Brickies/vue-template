@@ -3,7 +3,6 @@ const path = require('path')
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
-// mock api 地址
 // let proxyTable = {
 //   '/api': {
 //     target: 'http://yapi.demo.qunar.com/mock/13227/',
@@ -12,7 +11,7 @@ function resolve (dir) {
 //     }
 //   }
 // }
-// // 测试环境接口地址
+// // 测试环境后端服务地址
 // if (process.env.API_ENV === 'test') {
 //   proxyTable = {
 //     '/api': {
@@ -29,7 +28,7 @@ module.exports = {
     proxy: {
       ...proxyTable,
       '^/weather': {
-        target: 'https://www.apiopen.top',
+        target: 'https://www.apiopen.top/api',
         pathRewrite: {
           '^/weather': ''
         }

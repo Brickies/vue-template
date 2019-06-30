@@ -2,47 +2,45 @@
   "name": "{{ name }}",
   "version": "0.1.0",
   "description": "{{ description }}",
-  "author": "{{ author }}",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "dev": "npm run serve",
-    "dev-test": "cross-env API_ENV=test npm run serve",
-    "deploy": "npm run build && gh-pages -d dist",
-    "lint": "vue-cli-service lint",
     "build": "vue-cli-service build",
-    "build-report": "vue-cli-service build --report && open dist/report.html"
+    "lint": "vue-cli-service lint",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "@types/js-cookie": "^2.2.2",
+    "axios": "^0.19.0",
     "core-js": "^2.6.5",
-    "element-ui": "^2.8.2",
+    "element-ui": "^2.10.0",
     "js-cookie": "^2.2.0",
-    "nprogress": "^0.2.0",
     "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.7.0",
-    "@vue/cli-plugin-eslint": "^3.7.0",
-    "@vue/cli-service": "^3.7.0",
-    "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.1",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-typescript": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
     "cross-env": "^5.2.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
     "gh-pages": "^2.0.1",
-    "lint-staged": "^7.3.0",
+    "lint-staged": "^8.1.5",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.4.3",
+    "vue-template-compiler": "^2.6.10"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
+    "*.ts": [
       "vue-cli-service lint",
       "git add"
     ],

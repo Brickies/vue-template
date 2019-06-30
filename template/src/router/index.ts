@@ -1,17 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import NProgress from 'nprogress'
+import Home from 'views/Home.vue'
 
 Vue.use(Router)
 
-const router = new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
+export default new Router({
   routes: [
     {
       path: '/',
       name: 'home',
-      component: () => import(/* webpackChunkName: "home" */ 'views/Home.vue')
+      component: Home
     },
     {
       path: '/about',
@@ -23,14 +21,3 @@ const router = new Router({
     }
   ]
 })
-
-router.beforeEach((to, from, next, redirect) => {
-  NProgress.start()
-  next()
-})
-
-router.afterEach(transition => {
-  NProgress.done()
-})
-
-export default router

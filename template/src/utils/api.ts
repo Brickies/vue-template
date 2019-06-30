@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from './config'
 import Cookies from 'js-cookie'
 import { Message } from 'element-ui'
-import { redirectLogin } from './sso'
+import { redirectLogin } from './auth'
 
 const service = axios.create(config)
 // POST 传参序列化
@@ -22,7 +22,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   res => {
     const { code, message } = res.data
-    if (code === 11000) {
+    if (code === 401) {
       redirectLogin()
     }
     if (code !== 200) {

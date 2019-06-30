@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Home from './home'
+import home from './home'
 
 Vue.use(Vuex)
-// const debug = process.env.NODE_ENV !== 'production'
+const debug: boolean = process.env.NODE_ENV !== 'production'
 
 const store = new Vuex.Store({
   modules: {
-    Home
-  }
-  // strict: debug
+    home
+  },
+  strict: debug
 })
 
 export default store
