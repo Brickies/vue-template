@@ -125,11 +125,16 @@ export default class App extends Vue {
   }
 
   init () {
-    this.uploadLXAnalytics(this.$route)
-    this.$router.afterEach((to, from) => {
-      this.uploadLXAnalytics(to)
-    })
     this.setMoxi()
+    let timer = setInterval(() => {
+      if (window['LXAnalytics']) {
+        this.uploadLXAnalytics(this.$route)
+        this.$router.afterEach((to, from) => {
+          this.uploadLXAnalytics(to)
+        })
+        clearInterval(timer)
+      }
+    }, 50)
   }
 
   // 上报埋点

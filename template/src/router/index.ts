@@ -5,8 +5,8 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '*', redirect: '/' },
-  { path: '/ssocallback', name: 'ssocallback', component: () => import('@/views/SSOCallback.vue') },
+  { path: '*', redirect: '/' },{{#sso}}
+  { path: '/ssocallback', name: 'ssocallback', component: () => import('@/views/SSOCallback.vue') },{{/sso}}
   {
     path: '/',
     name: 'home',
