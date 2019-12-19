@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>{{ name }}</title>
+    <title>snf-ts-template</title>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but mbop doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but snf-ts-template doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <% if(NODE_ENV !== 'development') { %>
+  <script type="text/javascript"  src="<%= NODE_ENV === 'production' ? '//www.dpfile.com/app/owl/static/owl_1.8.13.js' : '//s1.51ping.com/app/owl/static/owl_1.8.13.js' %>"></script>
+  <script>
+    Owl.start({
+      project: 'travel-mbop-oversea',
+      isSPA: true,
+      pageUrl: 'index'
+    })
+  </script>
+  <% } %>
+  <script type="text/javascript">
+    !(function (win, doc, ns) {
+        var cacheFunName = '_MeiTuanALogObject';
+        win[cacheFunName] = ns;
+        if (!win[ns]) {
+            var _LX = function () {
+                _LX.q.push(arguments);
+                return _LX;
+            };
+            _LX.q = _LX.q || [];
+            _LX.l = +new Date();
+            win[ns] = _LX;
+        }
+    })(window, document, 'LXAnalytics');
+  </script>
+  <script type="text/javascript"  src="<%= NODE_ENV === 'production' ? '//analytics.meituan.net/analytics.js' : '//analytics.fetc.st.{{ mtHost }}/analytics.js' %>" async></script>
 </html>

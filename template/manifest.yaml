@@ -1,0 +1,28 @@
+build:
+  tools:
+    node: v8.9.3
+  os: centos6
+  cache:
+    dirs:
+      - ./node_modules
+  run:
+    cmd:
+      - node -v
+      - npm -v
+      - export NPM_REGISTRY=http://r.npm.{{ mtHost }}/
+      - npm install npm -g --registry=$NPM_REGISTRY
+      - npm --production=false install --registry=$NPM_REGISTRY
+      - npm run build-avatar
+  target:
+    distDir: ./
+    files:
+      - ./dist/*
+      - ./s3plus.config.js
+deploy:
+  targetDir: /opt/meituan/projects/avatar
+  run:
+    cmd:
+      - npm i @bfe/snf-s3-deploy -g --registry=http://r.npm.{{ mtHost }}
+      - snf-s3-deploy deploy
+      - rm -rf dist
+    workDir: /opt/meituan/projects/avatar

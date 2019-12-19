@@ -1,88 +1,52 @@
-const path = require('path')
-{{#codex}}
-const f2eci = require('./f2eci')
-const originalENV = process.env.ENV || f2eci.env
-const env = (originalENV === 'beta' && f2eci.swimlane === 'alphaa') ? 'alpha' : originalENV //rewrite test env to alpha
-const urlPrefix = env === 'development' ? '/' : f2eci.urlPrefix
-{{/codex}}
 const webpack = require('webpack')
-
-function resolve (dir) {
-  return path.join(__dirname, dir)
-}
-{{#portm}}
-let portm
-if (process.env === 'development') {
-  try {
-    portm = require('./.portm.json')
-  }
-  catch (e) {
-    console.warn(`!!!warning!!! \n 请在根目录下配置.portm.json文件，格式{userToken:"your porm token"}`)
-    portm = {}
-  }
-}
-{{/portm}}
-// portm 模拟数据地址: http://portm.sankuai.com/api-groups/edit/{{ portmProjectToken }}
+const ENV = process.env
+const { USER_TOKEN } = require('./.local.json')
+// Mock 模拟数据地址
 let proxyTable = {
-  {{#portm}}
   '^/api': {
-    target: 'http://portm.sankuai.com',
+    target: ENV.MOCK_URL,
     headers: {
-      'host': 'portm.sankuai.com',
-      'Portm-Target': '{{ portmTarget }}',
-      'Portm-Token': '{{ portmProjectToken }}',
-      'Portm-User': portm && portm.userToken
+      'host': ENV.MOCK_URL,
+      'Portm-Target': ENV.TARGET_URL,
+      'Portm-User': USER_TOKEN
     }
   },
-  {{#watermark}}
-  '^/api-wm/*': {
-    target: 'http://portm.sankuai.com',
-    changeOrigin: true,
+  '^/portal/*': {
+    target: ENV.MOCK_URL,
     headers: {
-      'host': 'portm.sankuai.com',
-      'Portm-Target': '{{ portmTarget }}',
-      'Portm-Token': '{{ portmProjectToken }}',
-      'Portm-User': portm && portm.userToken
+      'host': ENV.MOCK_URL,
+      'Portm-Target': ENV.TARGET_URL,
+      'Portm-User': USER_TOKEN
     }
   }
-  {{/watermark}}
-  {{/portm}}
 }
 
-// 测试环境
+// 测试环境后端服务地址:
 if (process.env.API_ENV === 'test') {
-  // some options of test
+  proxyTable = {
+    '^/api': {
+      target: ENV.TARGET_URL
+    },
+    '^/portal/*': {
+      target: ENV.MWS_PORTAL_URL,
+      headers: {
+        'host': ENV.MWS_PORTAL_URL
+      }
+    }
+  }
 }
+
 module.exports = {
   devServer: {
-    proxy: {
-      ...proxyTable,
-      '^/weather': {
-        target: 'https://www.apiopen.top'
-      }
-    }
+    proxy: proxyTable
   },
-  {{#codex}}
-  baseUrl: urlPrefix,
-  {{/codex}}
+  publicPath: '/',
   configureWebpack: config => {
-    if (process.env.API_ENV === 'test') {
-      config.plugins = [
-        ...config.plugins,
-         new webpack.DefinePlugin({
-          'process.env.API_ENV': '"test"'
-        })
-      ]
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'src': resolve('src'),
-        'views': resolve('src/views'),
-        'styles': resolve('src/styles'),
-        'components': resolve('src/components'),
-        'utils': resolve('src/utils'),
-        'assets': resolve('src/assets'),
-        'store': resolve('src/store')
-      }
-    }
+    config.plugins = [
+      ...config.plugins,
+      new webpack.DefinePlugin({
+        'process.env.API_ENV': ENV.API_ENV
+      })
+    ]
   }
 }

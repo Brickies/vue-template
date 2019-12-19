@@ -1,7 +1,7 @@
 const throttle = (delay: number, method: any) => {
   let last = 0
   return function () {
-    let curr = + new Date()
+    let curr = +new Date()
     if (curr - last > delay) {
       method.apply(this, arguments)
       last = curr

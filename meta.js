@@ -56,15 +56,17 @@ module.exports = {
       type: 'string',
       message: 'Author',
     },
-    element: {
+    mtd: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install element-ui?',
+      message: 'Install mtd-vue?',
     },
-    e2e: {
+    mtHost: {
       when: 'isNotTest',
-      type: 'confirm',
-      message: 'Setup e2e tests?',
+      type: 'string',
+      required: false,
+      message: 'mt host',
+      default: 'mt_host',
     },
     sso: {
       when: 'isNotTest',
@@ -99,58 +101,15 @@ module.exports = {
       message: 'your sso origin host',
       default: 'your_sso_origin_host',
     },
-    mtHost: {
-      when: 'isNotTest',
-      type: 'string',
-      required: false,
-      message: 'mt host',
-      default: 'mt_host',
-    },
-    watermark: {
+    s3: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use watermark in project?',
+      message: 'use s3 deploy?',
     },
-    portm: {
+    papi: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use portm in project?',
-    },
-    portmTarget: {
-      when: 'isNotTest && portm',
-      type: 'string',
-      required: false,
-      message: 'portm target',
-      default: 'portm_target',
-    },
-    portmUserToken: {
-      when: 'isNotTest && portm',
-      type: 'string',
-      required: false,
-      message: 'portm user token',
-      default: 'your_user_token',
-    },
-    portmProjectToken: {
-      when: 'isNotTest && portm',
-      type: 'string',
-      required: false,
-      message: 'portm project token',
-      default: 'your_project_token',
-    },
-    codex: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use codex publish?',
-    },
-    commitLint: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use commit lint?',
-    },
-    pwa: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use pwa?',
+      message: 'Use papi in project?',
     },
     autoInstall: {
       when: 'isNotTest',
@@ -177,14 +136,9 @@ module.exports = {
     },
   },
   filters: {
-    'tests/e2e/**/*': 'e2e',
-    'cypress.json': "e2e",
-    'f2eci.json': 'codex',
-    'commitlint.config.js': "commitLint",
     'src/views/SSOCallback.vue': "sso",
-    'src/utils/sso.ts': "sso",
-    'src/styles/element.scss': "element",
-    'src/registerServiceWorker.ts': "pwa"
+    'manifest.yaml': "s3",
+    's3plus.config.js': "s3"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

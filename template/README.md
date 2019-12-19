@@ -9,12 +9,12 @@
 - 语言
   - 主语言: typescript、html5
   - 样式: sass
-- 数据框架: vue^2.5.16
-- 路由: vue-router^3.0.1
-- 数据流: vuex^3.0.1
-- ajax 框架: axios^0.18.0{{#element}}
-- 页面组件: element-ui^2.4.1{{/element}}
-- 脚手架: @vue/cli-service^3.0.0-beta.15
+- 数据框架: vue^2.6.10
+- 路由: vue-router^3.1.3
+- 数据流: vuex^3.1.2
+- ajax 框架: axios^0.18.0{{#mtd}}
+- 页面组件: @ss/mtd-vue{{/mtd}}
+- 脚手架: @vue/cli-service^4.1.0
 - 编码规范保障
   - 语法检查: tslint
   - 编辑器整体检查: editorConfig
@@ -33,9 +33,7 @@
 - tsconfig.json `ts 配置相关`
 - tslint.json `tslint 配置相关`
 - vue.config.js `webpack 配置相关`
-- test `测试相关`
 
-{{#commitLint}}
 ## Git 仓库 分支和提交约定
 
 简要摘录:
@@ -43,7 +41,7 @@
 - 上线分支: 统一使用 master
   - 注意：master 分支在任何情况下不可用作为提测分支
 - 开发集成分支
-  - 统一使用 develop
+  - 统一使用 dev
   - 注意：如果团队不使用开发集成分支管理模式，此分支可忽略
 - 新需求开发分支
   - feature/{需求 task ID}/{简要描述}
@@ -93,20 +91,29 @@ feat(monitor): 增加监控模块
 fix(api): 修复API模块对错误码判断错误导致的权限判断逻辑错误, issue #123
 docs: 新增关于git commit message约定的文档
 ```
-{{/commitLint}}
 
-{{#portm}}
+{{#papi}}
 ## mock 数据
 
-- portm 平台[传送门](http://portm.sankuai.com/api-groups/edit/{{ portmProjectToken }})
-- 本地启动 portm，在根目录下新建 `.portm.json` 文件，配置好自己的 userToken，之后执行即可（这样就不用特意再去本地开一个 node 进程）
+- papi 项目 [传送门]()
+- papi 用户页面获取 userToken[传送门](http://a.{{ mtHost }}/user/center)
+- 本地启动 papi，在根目录下的 `.env.development` 文件中设置好 papi 对应的选项
+
+```
+MOCK_URL=http://a.{{ mtHost }} // mock 地址
+TARGET_URL=http://xxx.test.{{ mtHost }} // mock 透传地址
+```
+
+- 然后在根目录下的 `.local.json` 文件中配置好模拟以及 mws 侧导的信息
 
 ```json
 {
-  "userToken": "这里是userToken"
+  "USER_TOKEN": "USER_TOKEN", // userToken
+  "YUN_PORTAL_SSOID": "YUN_PORTAL_SSOID" // 一朵云测试环境的 ssoid，需要定期进行更新
 }
 ```
-{{/portm}}
+
+{{/papi}}
 
 ## 项目启动
 
@@ -117,10 +124,6 @@ npm run dev | npm run serve
 npm run lint
 # 项目构建
 npm run build
-{{#e2e}}
-# 运行端对端测试
-npm run test:e2e
-{{/e2e}}
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
@@ -128,7 +131,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## 项目编码规范
 
 - [代码规范](https://www.npmjs.com/package/tslint-config-standard)
-- [开发规范](https://123.sankuai.com/km/page/57983706)
+- [开发规范](https://123.{{ mtHost }}/km/page/57983706)
 - 文件名规范：全部小写，中横线分隔
 - 开发工具推荐使用 `vscode`
   安装插件: `Vetur` 和`Prettier - Code formatter`

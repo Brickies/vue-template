@@ -1,94 +1,59 @@
 {
-  "name": "{{ name }}",
-  "version": "1.0.0",
-  "description": "{{ description }}",
-  "author": "{{ author }}",
+  "name": "snf-ts-template",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "dev": "npm run serve",
     "dev-test": "cross-env API_ENV=test npm run serve",
-    "build": "vue-cli-service build",
+    "build": "cross-env PROJECT=mws vue-cli-service build",
     "build-report": "vue-cli-service build --report && open dist/report.html",
-    {{#commitLint}}
-    "commit": "git-cz",
-    {{/commitLint}}
-    "lint": "vue-cli-service lint"{{#e2e}},
-    "test:e2e": "vue-cli-service test:e2e",
-    {{/e2e}}
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    {{#watermark}}
-    "@dp/watermark": "^1.1.1",
-    {{/watermark}}
-    {{#sso}}
-    "@types/js-cookie": "^2.1.0",
-    {{/sso}}
-    "@types/lodash": "^4.14.110",
-    "@types/qs": "^6.5.1",
-    "axios": "^0.18.0",
-    {{#element}}
-    "element-ui": "^2.4.1",
-    {{/element}}
-    {{#sso}}
-    "js-cookie": "^2.2.0",
-    {{/sso}}
-    "register-service-worker": "^1.0.0",
-    "typescript": "^2.9.2",
-    "vue": "^2.5.16",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^6.0.0",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "vuex-class": "^0.3.1"
+    "@dp/watermark": "^1.1.2",
+    "axios": "^0.19.0",
+    "core-js": "^3.4.3",
+    "scriptjs": "^2.5.9",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
-    {{#commitLint}}
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^7.0.1",
-    {{/commitLint}}
-    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
-    {{#pwa}}
-    "@vue/cli-plugin-pwa": "^3.0.0-beta.15",
-    {{/pwa}}
-    "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
-    "@vue/cli-service": "^3.0.0-beta.15",
-    "cross-env": "^5.2.0",
-    {{#commitLint}}
-    "cz-conventional-changelog": "^2.1.0",
-    {{/commitLint}}
-    "lint-staged": "^7.2.0",
-    "node-sass": "^4.9.0",
-    "qs": "^6.5.2",
-    "sass-loader": "^7.0.1",
-    "tslint-config-standard": "^7.0.0",
-    "vue-template-compiler": "^2.5.16"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "config": {
-    {{#commitLint}}
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-    {{/commitLint}}
+    "@bfe/site-update-checker": "0.0.5",
+    "@bfe/snf-lx": "^0.3.0",
+    "@ss/mtd-vue": "^0.1.45",
+    "@types/js-cookie": "^2.2.4",
+    "@types/lodash": "^4.14.149",
+    "@types/qs": "^6.9.0",
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-typescript": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "js-cookie": "^2.2.1",
+    "lint-staged": "^9.4.3",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.12.0",
+    "qs": "^6.9.1",
+    "sass-loader": "^8.0.0",
+    "typescript": "~3.5.3",
+    "vue-template-compiler": "^2.6.10"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"{{#commitLint}},
-    "commit-msg": "commitlint -E GIT_PARAMS"{{/commitLint}}
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.ts": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "*.vue": [
+    "*.{js,vue,ts}": [
       "vue-cli-service lint",
       "git add"
     ]
-  },
-  "LINT_STATED_TO_BE_DONE": ""
+  }
 }

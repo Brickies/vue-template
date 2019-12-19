@@ -1,6 +1,6 @@
-import request from '@/utils/api'
+// import request from '@/utils/api'
 import { State } from './interface'
-import { Commit } from 'vuex'
+// import { Commit } from 'vuex'
 
 const state: State = {
   count: 0
@@ -20,11 +20,7 @@ const mutations = {
   }
 }
 
-const actions = {
-  async getTodayWeather (context: { commit: Commit }, params: { city: string }) {
-    return request.get('/weather/api/weatherApi', { params: params })
-  }
-}
+const actions = {}
 
 export default {
   state,

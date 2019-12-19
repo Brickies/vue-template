@@ -1,7 +1,5 @@
 module.exports = {
   presets: [
-    ['@vue/app', {
-      "exclude": ["es6.promise"] // @SEE polyfills.js
-    }]
+    '@vue/cli-plugin-babel/preset'
   ]
 }

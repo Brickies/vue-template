@@ -1,5 +1,3 @@
-import http from 'http'
-import https from 'https'
 import qs from 'qs'
 import { AxiosResponse, AxiosRequestConfig } from 'axios'
 
@@ -7,7 +5,7 @@ const axiosConfig: AxiosRequestConfig = {
   baseURL: '/',
   // 请求前的数据处理
   // transformRequest: [function (data: any) {
-    // return data
+  //   return data
   // }],
   // 请求后的数据处理
   transformResponse: [function (data: AxiosResponse) {
@@ -23,7 +21,7 @@ const axiosConfig: AxiosRequestConfig = {
     return qs.stringify(params)
   },
   // 超时设置s
-  timeout: 30000,
+  timeout: 10000,
   // 跨域是否带Token
   withCredentials: true,
   // 自定义请求处理
@@ -33,7 +31,6 @@ const axiosConfig: AxiosRequestConfig = {
   // xsrf 设置
   xsrfCookieName: 'XSRF-TOKEN',
   xsrfHeaderName: 'X-XSRF-TOKEN',
-
   // 下传和下载进度回调
   onUploadProgress: function (progressEvent: any) {
     Math.round(progressEvent.loaded * 100 / progressEvent.total)
@@ -48,10 +45,11 @@ const axiosConfig: AxiosRequestConfig = {
   // 自定义错误状态码范围
   validateStatus: function (status: number) {
     return status >= 200 && status < 300
-  },
-  // 用于node.js
-  httpAgent: new http.Agent({ keepAlive: true }),
-  httpsAgent: new https.Agent({ keepAlive: true })
+  }
+}
+
+export const LX_CIDS = {
+  home: 'c_onecloud_ioqkb63i'
 }
 
 export default axiosConfig
