@@ -8,12 +8,12 @@ const service = axios.create(config)
 service.interceptors.request.use(
   config => {
     const ssoid = sso.getSsoid()
-    if (!ssoid) {
+    if (ssoid) {
+      config.headers['access-token'] = ssoid
+    }{{#sso}} else {
       sso.setCurrentURL()
       sso.redirectLogin()
-    } else {
-      config.headers['access-token'] = ssoid
-    }
+    }{{/sso}}
     return config
   },
   error => {
@@ -33,8 +33,10 @@ service.interceptors.response.use(
     if (error.response.status === 401) {
       // 重定向到SSO登录页
       sso.removeSsoid()
+      {{#sso}}
       sso.setCurrentURL()
       sso.redirectLogin()
+      {{/sso}}
     }
     return Promise.reject(error)
   }

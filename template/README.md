@@ -104,7 +104,7 @@ MOCK_URL=http://a.{{ mtHost }} // mock 地址
 TARGET_URL=http://xxx.test.{{ mtHost }} // mock 透传地址
 ```
 
-- 然后在根目录下的 `.local.json` 文件中配置好模拟以及 mws 侧导的信息
+- 然后在根目录下新建 `.local.json` 文件中配置好 USER_TOKEN 以及 mws 测试环境 ssoid（一定要新建这个文件，否则服务跑不起来）
 
 ```json
 {
