@@ -1,6 +1,8 @@
-const webpack = require('webpack')
+const webpack = require('webpack'){{#styleFixOnSave}}
+const StyleLintPlugin = require('stylelint-webpack-plugin'){{/styleFixOnSave}}
 const ENV = process.env
 const { USER_TOKEN } = require('./.local.json')
+
 // Mock 模拟数据地址
 let proxyTable = {
   '^/api': {
@@ -46,7 +48,13 @@ module.exports = {
       ...config.plugins,
       new webpack.DefinePlugin({
         'process.env.API_ENV': ENV.API_ENV
-      })
+      }){{#styleFixOnSave}},
+      new StyleLintPlugin({
+        files: ['src/**/*.{html,vue,css,sass,scss}'],
+        fix: true,
+        cache: true,
+        ignorePath: 'iconfont'
+      }){{/styleFixOnSave}}
     ]
   }
 }

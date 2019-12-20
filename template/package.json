@@ -8,7 +8,8 @@
     "dev-test": "cross-env API_ENV=test npm run serve",
     "build": "cross-env PROJECT=mws vue-cli-service build",
     "build-report": "vue-cli-service build --report && open dist/report.html",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint"{{#commitlint}},
+    "commit": "git-cz"{{/commitlint}}
   },
   "dependencies": {
     "@dp/watermark": "^1.1.2",
@@ -24,7 +25,9 @@
   },
   "devDependencies": {
     "@bfe/site-update-checker": "0.0.5",
-    "@bfe/snf-lx": "^0.3.0",
+    "@bfe/snf-lx": "^0.3.0",{{#commitlint}}
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",{{/commitlint}}
     "@ss/mtd-vue": "^0.1.45",
     "@types/js-cookie": "^2.2.4",
     "@types/lodash": "^4.14.149",
@@ -35,7 +38,9 @@
     "@vue/cli-service": "^4.1.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
-    "cross-env": "^6.0.3",
+    "cross-env": "^6.0.3",{{#commitlint}}
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",{{/commitlint}}
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "js-cookie": "^2.2.1",
@@ -43,13 +48,22 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
     "qs": "^6.9.1",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^8.0.0",{{#stylelint}}
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-webpack-plugin": "^1.1.2",{{/stylelint}}
     "typescript": "~3.5.3",
     "vue-template-compiler": "^2.6.10"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
+    "pre-commit": "lint-staged"{{#commitlint}},
+    "commit-msg": "commitlint -e"{{/commitlint}}
+  },{{#commitlint}}
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },{{/commitlint}}
   "lint-staged": {
     "*.{js,vue,ts}": [
       "vue-cli-service lint",

@@ -68,11 +68,6 @@ module.exports = {
       message: 'mt host',
       default: 'mt_host',
     },
-    sso: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use sso in project?',
-    },
     s3: {
       when: 'isNotTest',
       type: 'confirm',
@@ -82,6 +77,26 @@ module.exports = {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Use papi in project?',
+    },
+    stylelint: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use stylelint in project?',
+    },
+    styleFixOnSave: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Fix stylelint error onsave in project?',
+    },
+    commintlint: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use commintlint in project?',
+    },
+    sso: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use sso in project?',
     },
     autoInstall: {
       when: 'isNotTest',
@@ -110,7 +125,9 @@ module.exports = {
   filters: {
     'src/views/SSOCallback.vue': "sso",
     'manifest.yaml': "s3",
-    's3plus.config.js': "s3"
+    's3plus.config.js': "s3",
+    '.commitlintrc.js': 'commitlint',
+    '.stylelintrc.js': 'stylelint'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
