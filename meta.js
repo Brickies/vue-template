@@ -83,15 +83,10 @@ module.exports = {
       type: 'confirm',
       message: 'Use stylelint in project?',
     },
-    styleFixOnSave: {
+    commitlint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Fix stylelint error onsave in project?',
-    },
-    commintlint: {
-      when: 'isNotTest',
-      type: 'confirm',
-      message: 'Use commintlint in project?',
+      message: 'Use commitlint in project?',
     },
     sso: {
       when: 'isNotTest',

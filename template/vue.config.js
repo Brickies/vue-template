@@ -1,5 +1,5 @@
-const webpack = require('webpack'){{#styleFixOnSave}}
-const StyleLintPlugin = require('stylelint-webpack-plugin'){{/styleFixOnSave}}
+const webpack = require('webpack'){{#stylelint}}
+const StyleLintPlugin = require('stylelint-webpack-plugin'){{/stylelint}}
 const ENV = process.env
 const { USER_TOKEN } = require('./.local.json')
 
@@ -48,13 +48,13 @@ module.exports = {
       ...config.plugins,
       new webpack.DefinePlugin({
         'process.env.API_ENV': ENV.API_ENV
-      }){{#styleFixOnSave}},
+      }){{#stylelint}},
       new StyleLintPlugin({
         files: ['src/**/*.{html,vue,css,sass,scss}'],
         fix: true,
         cache: true,
         ignorePath: 'iconfont'
-      }){{/styleFixOnSave}}
+      }){{/stylelint}}
     ]
   }
 }
