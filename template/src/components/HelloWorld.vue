@@ -29,8 +29,14 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
     <p>\{{ count }}</p>
+    {{#mtd}}
     <mtd-button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</mtd-button>
     <mtd-button @click="DECREMENT(2)">DECREMENT</mtd-button>
+    {{/mtd}}
+    {{#if_not mtd}}
+    <button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</button>
+    <button @click="DECREMENT(2)">DECREMENT</button>
+    {{/if_not}}
   </div>
 </template>
 

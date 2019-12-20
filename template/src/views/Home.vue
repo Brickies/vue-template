@@ -4,7 +4,7 @@
       alt="Vue logo"
       src="../assets/logo.png"
       v-lxclick:bid="obj">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
