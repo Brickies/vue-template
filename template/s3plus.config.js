@@ -14,8 +14,5 @@ module.exports = {
   deployCatalog: join(__dirname, 'dist'),
   bucket: env.NODE_ENV,
   customPath: '{{ name }}',
-  kms: {
-    appKey: 's3 服务 appkey',
-    fileName: 's3-test.json'
-  }
+  kms: 's3 服务 appkey'
 }
