@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>\{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -28,7 +28,7 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
-    <p>{{ count }}</p>
+    <p>\{{ count }}</p>
     <mtd-button @click="INCREMENT(2)" style="margin-right: 10px;">INCREMENT</mtd-button>
     <mtd-button @click="DECREMENT(2)">DECREMENT</mtd-button>
   </div>
@@ -40,11 +40,11 @@ import { Getter, Mutation } from 'vuex-class'
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() msg!: string;
+  @Prop() msg: string
 
-  @Getter('count') count!: number
-  @Mutation('INCREMENT') INCREMENT!: Function
-  @Mutation('DECREMENT') DECREMENT!: Function
+  @Getter('count') count: number
+  @Mutation('INCREMENT') INCREMENT: Function
+  @Mutation('DECREMENT') DECREMENT: Function
 }
 </script>
 

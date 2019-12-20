@@ -1,5 +1,5 @@
 <template>
-  <div class="sso-callback"></div>
+  <div class="sso-callback" />
 </template>
 <script lang="ts">
 import axios from 'axios'

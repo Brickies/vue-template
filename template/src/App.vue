@@ -10,7 +10,7 @@
       <div class="onecloud-content-wrapper">
         <!-- 业务容器，该容器id或者class属性可自定义 -->
         <div id="app">
-          <router-view/>
+          <router-view />
         </div>
       </div>
     </div>
@@ -82,7 +82,9 @@ export default class App extends Vue {
         //   /* 可自行实现服务跳转拦截后的业务逻辑 */
         // },
         /* 注释3.5：如果接入IAM，需要监听顶部项目的切换  */
-        onProjectSwitch (project: any) {}
+        onProjectSwitch (project: any) {
+          // IAM
+        }
       })
 
       /* 注释3.5：顶部导航渲染 */
@@ -188,7 +190,7 @@ export default class App extends Vue {
       let right = ~~style.right.split('px')[0]
       let bottom = ~~style.bottom.split('px')[0]
 
-      const e: any = event || window.event
+      const e: any = event
       const downX = e.clientX
       const downY = e.clientY
 
@@ -197,7 +199,7 @@ export default class App extends Vue {
 
       document.onmousemove = ev => {
         if (!this.canDrag) return false
-        const e: any = ev || window.event
+        const e: any = ev
         const nowX = e.clientX
         const nowY = e.clientY
         const distanceX = nowX - downX

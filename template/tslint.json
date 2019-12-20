@@ -1,6 +1,6 @@
 {
   "defaultSeverity": "warning",
-  "extends": "@vue/eslint-config-standard",
+  "extends": "tslint-config-standard",
   "linterOptions": {
     "exclude": [
       "node_modules/**"
