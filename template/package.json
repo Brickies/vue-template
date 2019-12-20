@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@bfe/site-update-checker": "0.0.5",
-    "@bfe/snf-lx": "^0.3.0",{{#commitlint}}
+    "@bfe/snf-lx": "^0.4.0",{{#commitlint}}
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",{{/commitlint}}
     "@ss/mtd-vue": "^0.1.45",

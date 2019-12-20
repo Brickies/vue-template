@@ -71,7 +71,7 @@ module.exports = {
     s3: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'use s3 deploy?',
+      message: 'Use s3 deploy?',
     },
     papi: {
       when: 'isNotTest',
