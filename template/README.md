@@ -95,7 +95,7 @@ docs: 新增关于git commit message约定的文档
 {{#papi}}
 ## mock 数据
 
-- papi 项目 [传送门]()
+- papi [传送门](http://a.{{ mtHost }}/)
 - papi 用户页面获取 userToken[传送门](http://a.{{ mtHost }}/user/center)
 - 本地启动 papi，在根目录下的 `.env.development` 文件中设置好 papi 对应的选项
 

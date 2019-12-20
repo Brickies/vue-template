@@ -127,7 +127,8 @@ export default class App extends Vue {
   }
 
   init () {
-    this.setMoxi()
+    {{#moxi}}
+    this.setMoxi(){{/moxi}}
     let timer = setInterval(() => {
       if (window['LXAnalytics']) {
         this.uploadLXAnalytics(this.$route)
@@ -156,7 +157,7 @@ export default class App extends Vue {
     window['LXAnalytics']('pageView', valLab, null, id)
   }
 
-  // 接入摩西机器人
+  {{#moxi}}// 接入摩西机器人
   setMoxi () {
     const self = this;
     (function (userId) {
@@ -177,43 +178,8 @@ export default class App extends Vue {
       let params = encodeURIComponent(JSON.stringify(_params))
       script.setAttribute('params', params)
       document.body.appendChild(script)
-      setTimeout(() => {
-        self.moxiDrag()
-      }, 1000)
     })(this.userinfo.login_name)
-  }
-
-  moxiDrag () {
-    const moxi: any = document.getElementsByClassName('moses-icon')[0]
-    moxi.addEventListener('mousedown', event => {
-      const style = window.getComputedStyle ? window.getComputedStyle(moxi, null) : null || moxi.currentStyle
-      let right = ~~style.right.split('px')[0]
-      let bottom = ~~style.bottom.split('px')[0]
-
-      const e: any = event
-      const downX = e.clientX
-      const downY = e.clientY
-
-      e.stopPropagation()
-      this.canDrag = true
-
-      document.onmousemove = ev => {
-        if (!this.canDrag) return false
-        const e: any = ev
-        const nowX = e.clientX
-        const nowY = e.clientY
-        const distanceX = nowX - downX
-        const distanceY = nowY - downY
-        moxi.style.right = right - distanceX + 'px'
-        moxi.style.bottom = bottom - distanceY + 'px'
-        return false
-      }
-
-      document.onmouseup = ev => {
-        this.canDrag = false
-      }
-    }, true)
-  }
+  }{{/moxi}}
 }
 </script>
 

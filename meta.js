@@ -78,6 +78,11 @@ module.exports = {
       type: 'confirm',
       message: 'Use papi in project?',
     },
+    moxi: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Use Moxi in project?',
+    },
     stylelint: {
       when: 'isNotTest',
       type: 'confirm',
